@@ -7,10 +7,10 @@ assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Describe your feature request in this format: As a __(persona)___ I want to ___(action or feature)__ so that ___(expected outcome)__**
+A clear and concise description of what the problem, user persona, and expected outcome.
 
-**Describe the solution you'd like**
+**Describe the solution you'd like and the specific acceptance criteria to be completed**
 A clear and concise description of what you want to happen.
 
 **Describe alternatives you've considered**
