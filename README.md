@@ -12,7 +12,11 @@ For more information about PRIME, please refer to https://cdc.gov/prime
 
 This repo is primarily for project management, organizing project repos and resources, and promoting transparency for PRIME projects. The target users of this repo are CDC and USDS employees working on PRIME, and our pilot partners. 
 
-This repo will not house any code, but will be the home for non-code resources and will link out to PRIME code repositories. We are using the Projects tab for Kanban-style project management, with specific action items and features documented as Issues. 
+This repo will not house any production code, but will be the home for dev tools, scrap code, and non-code resources, and will link out to PRIME code repositories. We are using the Projects tab for Kanban-style project management, with specific action items and features documented as Issues.
+
+### Tools
+
+The Tools directory of this repo is a sandbox for your scrap code, dev tools, test data, etc, for developing on PRIME-related projects. If you are actively working on PRIME and are a collaborator on this repo, feel free to use it at will to store and share tools and tidbits.
 
 ## PRIME Repositories
 
