@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "patient.schema.json",
+  "title": "Patient",
+  "description": "A patient record for COVID testing",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "description": "Patient's first name",
+      "type": "string"
+    },
+    "middleName": {
+      "description": "Patient's middle name",
+      "type": "string"
+    },
+    "lastName": {
+      "description": "Patient's last name",
+      "type": "string"
+    },
+    "birthDate": {
+      "description": "",
+      "type": "string"
+    },
+    "phoneNumber": {
+      "description": "A nine digit phone number including area code",
+      "type": "string",
+      "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
+    },
+    "testTime": {
+      "description": "The date and time of the patient's scheduled test",
+      "type": "string",
+      "format": "date-time"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "address1": {
+      "type": "string"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "county": {
+      "type": "string"
+    },
+    "zipcode": {
+      "type": "string",
+      "pattern": "^[0-9][0-9][0-9][0-9][0-9]$"
+    },
+    "preferredContactMethod": {
+      "type": "string"
+    },
+    "race": {
+      "type": "string"
+    },
+    "ethnicity": {
+      "type": "string"
+    },
+    "sex": {
+      "type": "string"
+    },
+    "symptoms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName",
+    "phoneNumber",
+    "email",
+    "address1",
+    "city",
+    "county",
+    "zipcode"
+  ]
+}

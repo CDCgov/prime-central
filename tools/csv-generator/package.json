@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^6.1.0",
+    "csval": "^1.1.1",
     "faker": "^5.1.0",
     "js-yaml": "^3.14.0"
   }

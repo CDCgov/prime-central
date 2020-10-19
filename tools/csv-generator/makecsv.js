@@ -3,7 +3,6 @@
 // right now this outputs to stdout
 
 const fs = require("fs");
-const yaml = require("js-yaml");
 const faker = require("faker");
 const program = require("commander");
 
@@ -11,8 +10,8 @@ program
   .usage("[options]")
   .option(
     "-f, --schemafile <schemafile",
-    "yaml api schema file",
-    "example-schema.yaml"
+    "json schema file",
+    "patient.schema.json"
   )
   .option("-n, --numlines <numlines>", "number of CSV lines to generate", 10)
   .option("-tf, --testfile", "boolean flag", false)
@@ -20,9 +19,8 @@ program
 
 try {
   let fileContents = fs.readFileSync(program.schemafile, "utf8");
-  let data = yaml.safeLoad(fileContents);
-
-  var schema = data.components.schemas.TestRegistration.properties;
+  let data = JSON.parse(fileContents);
+  var schema = data.properties;
   var csvHead = Object.keys(schema).join(",");
 
   // If this is a test file, we need to generate error cases for each field, starting with
@@ -56,16 +54,18 @@ try {
   for (var x = 0; x <= program.numlines; x++) {
     var f = {};
     f.id = faker.random.uuid();
-    f.test_datetime = faker.date.future();
+    f.testTime = faker.date.future();
     f.sex = faker.name.gender();
-    f.first_name = faker.name.firstName();
-    f.middle_name = faker.name.firstName();
-    f.last_name = faker.name.lastName();
-    f.birth_date = faker.date.past();
+    f.firstName = faker.name.firstName();
+    f.middlName = faker.name.firstName();
+    f.lastName = faker.name.lastName();
+    f.birthDate = faker.date.past();
     f.phone = faker.phone.phoneNumber();
     f.email = faker.internet.email();
-    f.address = faker.address.streetAddress();
+    f.address1 = faker.address.streetAddress();
+    f.address2 = faker.address.secondaryAddress();    
     f.city = faker.address.city();
+    f.county = faker.address.county();    
     f.state = faker.address.stateAbbr();
     f.zipcode = faker.address.zipCode();
     f.sex = faker.name.gender();
@@ -75,7 +75,7 @@ try {
       if (f[col]) {
         thisRow.push(f[col]);
       } else {
-        thisRow.push("[no-random-support]");
+        thisRow.push(faker.random.word());
       }
     });
     // If testfile is set, we're going to null out each column one by one
