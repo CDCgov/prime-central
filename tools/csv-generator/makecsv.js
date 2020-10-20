@@ -51,16 +51,23 @@ try {
   // probably need to add a CSV validator and formatter to make sure it's proper on output
   // instead of stdout
 
+  var ynu = [
+    "YES",
+    "NO",
+    "UNK - Unknown"
+  ];
+
   for (var x = 0; x <= program.numlines; x++) {
     var f = {};
     f.patientID = faker.random.uuid();
     f.patientLastName = faker.name.lastName();
     f.patientFirstName = faker.name.firstName();
     f.patientMiddleName = faker.name.firstName();
-    f.patientGender = faker.name.gender();
     f.patientSuffix = faker.name.suffix();
+    f.patientRace = faker.random.word();
     f.patientDOB = faker.date.past();
     f.patientGender = faker.name.gender();
+    f.patientEthnicity = faker.random.word();
     f.patientStreet = faker.address.streetAddress();
     f.patientStreet2 = faker.address.secondaryAddress();    
     f.patientCity = faker.address.city();
@@ -70,6 +77,8 @@ try {
     f.patientPhoneNumber = faker.phone.phoneNumber();
     f.patientEmail = faker.internet.email();
     f.patientAge = faker.random.number({'max': 120});
+    f.employedInHealthcare = faker.random.arrayElement(ynu);
+    f.residentCongregateSetting = faker.random.arrayElement(ynu);
     
     var thisRow = [];
     Object.keys(schema).forEach(function (col) {
