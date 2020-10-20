@@ -53,23 +53,24 @@ try {
 
   for (var x = 0; x <= program.numlines; x++) {
     var f = {};
-    f.id = faker.random.uuid();
-    f.testTime = faker.date.future();
-    f.sex = faker.name.gender();
-    f.firstName = faker.name.firstName();
-    f.middlName = faker.name.firstName();
-    f.lastName = faker.name.lastName();
-    f.birthDate = faker.date.past();
-    f.phone = faker.phone.phoneNumber();
-    f.email = faker.internet.email();
-    f.address1 = faker.address.streetAddress();
-    f.address2 = faker.address.secondaryAddress();    
-    f.city = faker.address.city();
-    f.county = faker.address.county();    
-    f.state = faker.address.stateAbbr();
-    f.zipcode = faker.address.zipCode();
-    f.sex = faker.name.gender();
-
+    f.patientID = faker.random.uuid();
+    f.patientLastName = faker.name.lastName();
+    f.patientFirstName = faker.name.firstName();
+    f.patientMiddleName = faker.name.firstName();
+    f.patientGender = faker.name.gender();
+    f.patientSuffix = faker.name.suffix();
+    f.patientDOB = faker.date.past();
+    f.patientGender = faker.name.gender();
+    f.patientStreet = faker.address.streetAddress();
+    f.patientStreet2 = faker.address.secondaryAddress();    
+    f.patientCity = faker.address.city();
+    f.patientCounty = faker.address.county();    
+    f.patientState = faker.address.stateAbbr();
+    f.patientZipCode = faker.address.zipCode();
+    f.patientPhoneNumber = faker.phone.phoneNumber();
+    f.patientEmail = faker.internet.email();
+    f.patientAge = faker.random.number({'max': 120});
+    
     var thisRow = [];
     Object.keys(schema).forEach(function (col) {
       if (f[col]) {
